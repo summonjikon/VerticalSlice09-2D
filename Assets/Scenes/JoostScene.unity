@@ -548,3 +548,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxVelocity: 3
+  maxMinusVelocity: -0.1
+  Firefly: {fileID: 1032081945}
