@@ -10,13 +10,11 @@ public class FlockUnit : MonoBehaviour
     private Flock assignedFlock;
     private Vector3 currentVelocity;
     private float speed;
-    private Flock test;
 
     public Transform myTransform { get; set; }
     private void Awake()
     {
         myTransform = transform;
-        test = GetComponent<Flock>();
     }
     public void AssignFlock(Flock flock)
     {
@@ -26,13 +24,6 @@ public class FlockUnit : MonoBehaviour
     public void InitializeSpeed(float speed)
     {
         this.speed = speed;
-    }
-    private void Update()
-    {
-        for(int i = 0; i < test.allUnits.Length; i++)
-        {
-            test.allUnits[i].MoveUnit();
-        }
     }
     public void MoveUnit()
     {

@@ -219,6 +219,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &122580142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 122580143}
+  m_Layer: 0
+  m_Name: FireflyGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &122580143
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122580142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1090155, y: 1.4347506, z: -16.108927}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1032081946}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &670880405
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +441,7 @@ GameObject:
   - component: {fileID: 1032081946}
   - component: {fileID: 1032081947}
   m_Layer: 0
-  m_Name: FireFly
+  m_Name: Flock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,12 +454,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032081945}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0068644, y: 0.9427545, z: -0.025852203}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.1158799, y: -0.49199605, z: 16.083075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 122580143}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1032081947
 MonoBehaviour:
@@ -442,9 +473,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6670b8cd21f456c4885fb461aad936d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flockUnitPrefab: {fileID: 0}
+  flockUnitPrefab: {fileID: -7590390328792630471, guid: f3e1ee58095997e4eac47dfb34e31c21, type: 3}
   flockSize: 5
   spawnBounds: {x: 2, y: 2, z: 0}
-  minSpeed: 0
-  maxSpeed: 0
-  _cohesionDistance: 0
+  minSpeed: 1
+  maxSpeed: 1
+  _cohesionDistance: 5
