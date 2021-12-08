@@ -5,11 +5,13 @@ using UnityEngine.Events;
 
 public class MovementMae : MonoBehaviour
 {
-    private float gravity = 1.9f;
+    private float gravity = 4.5f;
+    [SerializeField]
     private float movementSpeed = 7.5f;
-    private float jumpPower = 700f;
+    [SerializeField]
+    private float jumpPower = 1000f;
     private int currentJumpsRemaining = 2;
-    private float boostedJumpTimer;
+    private float boostedJumpTimer = 0f;
     private bool justJumped;
 
     [SerializeField]
@@ -32,26 +34,30 @@ public class MovementMae : MonoBehaviour
             if (isGrounded() && Input.GetKeyDown(KeyCode.Space))
             {
                 justJumped = true;
+                currentJumpsRemaining = 2;
+                boostedJumpTimer = 0f;
                 rb.AddForce(transform.up * jumpPower);
             }
         }
         else
         {
-            boostedJumpTimer -= Time.deltaTime;
-            if (boostedJumpTimer < 1.5f)
+            boostedJumpTimer += Time.deltaTime;
+            if (boostedJumpTimer < 1.75f)
             {
                 if (isGrounded() && Input.GetKeyDown(KeyCode.Space))
                 {
-                    rb.AddForce(transform.up * jumpPower);
-                    currentJumpsRemaining--;
                     if (currentJumpsRemaining == 1)
                     {
-                        jumpPower += 200;
+                        jumpPower += 300;
                     }
+
+                    boostedJumpTimer = 0f;
+                    rb.AddForce(transform.up * jumpPower);
+                    currentJumpsRemaining--;
 
                     if (currentJumpsRemaining == 0)
                     {
-                        jumpPower -= 200;
+                        jumpPower -= 300;
                         currentJumpsRemaining = 2;
                         boostedJumpTimer = 0;
                         justJumped = false;
@@ -60,7 +66,6 @@ public class MovementMae : MonoBehaviour
             }
             else
             {
-                jumpPower = 700f;
                 currentJumpsRemaining = 2;
                 boostedJumpTimer = 0;
                 justJumped = false;
