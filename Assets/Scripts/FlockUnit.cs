@@ -10,8 +10,8 @@ public class FlockUnit : MonoBehaviour
     private Flock assignedFlock;
     private Vector3 currentVelocity;
     private float speed;
-
     public Transform myTransform { get; set; }
+    [SerializeField]private FlockUnit parent;
     private void Awake()
     {
         myTransform = transform;
@@ -38,18 +38,17 @@ public class FlockUnit : MonoBehaviour
     {
         cohesionNeighbours.Clear();
         var allUnits = assignedFlock.allUnits;
-        for(int i = 0; i < allUnits.Length; i++)
+        for (int i = 0; i < allUnits.Length; i++)
         {
             var currentUnit = allUnits[i];
-            if(currentUnit != this)
+            if (currentUnit != this)
             {
                 float currentNeightbourDistanceSqr = Vector3.SqrMagnitude(currentUnit.myTransform.position - myTransform.position);
-                if(currentNeightbourDistanceSqr <= assignedFlock.cohesionDistance * assignedFlock.cohesionDistance)
+                if (currentNeightbourDistanceSqr <= assignedFlock.cohesionDistance * assignedFlock.cohesionDistance)
                 {
                     cohesionNeighbours.Add(currentUnit);
                 }
             }
-            
         }
     }
     private Vector3 CalculateCohesionVector()
