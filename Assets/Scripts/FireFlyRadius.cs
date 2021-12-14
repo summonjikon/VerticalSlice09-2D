@@ -8,46 +8,39 @@ public class FireFlyRadius : MonoBehaviour
     [SerializeField]private float range;
     private float x, xMinus, yMinus, y, xSpeed, ySpeed;
     private Transform start;
-    private bool following;
+    [SerializeField]private bool following;
     private float multiplier;
     void Start()
     {
+        multiplier = 1;
         start = gameObject.transform;
         x = gameObject.transform.position.x + 3;
         y = gameObject.transform.position.y + 3;
         xMinus = gameObject.transform.position.x - 3;
         yMinus = gameObject.transform.position.y - 3;
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
-
-    // Update is called once per frame
     void Update()
     {
+        float distance = Vector3.Distance(Player.transform.position, gameObject.transform.position);
         if(following != true)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, 3))
+            if (distance < 5)
             {
                 following = true;
             }
         }
         if(following == true)
         {
-            float distance = Vector3.Distance(Player.transform.position, gameObject.transform.position);
-            if (gameObject.transform.position.x < x && Player.transform.position.x > gameObject.transform.position.x)
-            {
-                calculateMultiplier(distance);
-                gameObject.transform.position += new Vector3(xSpeed * multiplier * Time.deltaTime, 0, 0);
-            }
-            else if(gameObject.transform.position.x > xMinus && Player.transform.position.x < gameObject.transform.position.x)
-            {
-                calculateMultiplier(distance);
-                gameObject.transform.position += new Vector3(xSpeed * multiplier * Time.deltaTime, 0, 0);
-            }
+            transform.LookAt(Player.transform);
+            gameObject.transform.position = transform.forward * multiplier;
         }
-
     }
-    private void calculateMultiplier(float distance)
+    public float calculateMultiplier(float distance)
     {
-        multiplier = distance /= 3;
+        multiplier = 1;
+        multiplier += distance / 3;
+        multiplier++;
+        return multiplier;
     }
 }
