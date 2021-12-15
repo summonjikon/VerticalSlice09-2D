@@ -42,3 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Leaves
+    uniqueID: 4266496441
+    locked: 0
+  - name: Bush
+    uniqueID: 4038930805
+    locked: 0
+  - name: LightLeaf
+    uniqueID: 2404803487
+    locked: 0
