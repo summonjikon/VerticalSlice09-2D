@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlockUnit : MonoBehaviour
+public class StarFlockUnit : MonoBehaviour
 {
     [SerializeField] private float FOVAngle;
     [SerializeField] private float smoothDamp;
-    private List<FlockUnit> cohesionNeighbours = new List<FlockUnit>();
-    private Flock assignedFlock;
+    private List<StarFlockUnit> cohesionNeighbours = new List<StarFlockUnit>();
+    private StarFlock assignedFlock;
     private Vector3 currentVelocity;
     private float speed;
     public Transform myTransform { get; set; }
@@ -15,7 +15,7 @@ public class FlockUnit : MonoBehaviour
     {
         myTransform = transform;
     }
-    public void AssignFlock(Flock flock)
+    public void AssignFlock(StarFlock flock)
     {
         assignedFlock = flock;
     }
@@ -56,7 +56,7 @@ public class FlockUnit : MonoBehaviour
         if (cohesionNeighbours.Count == 0)
             return cohesionVector;
         int neighboursInFOV = 0;
-        for(int i = 0; i < cohesionNeighbours.Count; i++)
+        for (int i = 0; i < cohesionNeighbours.Count; i++)
         {
             if (IsInFOV(cohesionNeighbours[i].myTransform.position))
             {
