@@ -20,8 +20,11 @@ public class MovementMae : MonoBehaviour
     private BoxCollider2D boxCollider2D;
     private Rigidbody2D rb;
 
+    private Animator anim;
+
     void Start()
     {
+        anim = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = (gravity * rb.mass);
@@ -33,6 +36,7 @@ public class MovementMae : MonoBehaviour
         {
             if (isGrounded() && Input.GetKeyDown(KeyCode.Space))
             {
+                anim.SetTrigger("Jumped");
                 justJumped = true;
                 currentJumpsRemaining = 2;
                 boostedJumpTimer = 0f;
@@ -51,12 +55,14 @@ public class MovementMae : MonoBehaviour
                         jumpPower += 300;
                     }
 
+                    //anim.SetTrigger("Jumped2");
                     boostedJumpTimer = 0f;
                     rb.AddForce(transform.up * jumpPower);
                     currentJumpsRemaining--;
 
                     if (currentJumpsRemaining == 0)
                     {
+                        anim.SetTrigger("Jumped3");
                         jumpPower -= 300;
                         currentJumpsRemaining = 2;
                         boostedJumpTimer = 0;
@@ -71,6 +77,18 @@ public class MovementMae : MonoBehaviour
                 justJumped = false;
             }
         }
+        Vector3 characterScale = transform.localScale;
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            //anim.SetTrigger("Turning");
+            characterScale.x = -0.4002f;
+        }
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+           // anim.SetTrigger("Turning");
+            characterScale.x = 0.4002f;
+        }
+        transform.localScale = characterScale;
     }
 
     public void FixedUpdate()
@@ -79,6 +97,7 @@ public class MovementMae : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         if (Input.GetKey(KeyCode.A))
         {
+            anim.SetBool("IsRunning", true);
             rb.velocity = new Vector2(-movementSpeed, rb.velocity.y);
         }
 
@@ -86,11 +105,13 @@ public class MovementMae : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.D))
             {
+                anim.SetBool("IsRunning", true);
                 rb.velocity = new Vector2(movementSpeed, rb.velocity.y);
             }
 
             else
             {
+                anim.SetBool("IsRunning", false);
                 rb.velocity = new Vector2(0, rb.velocity.y);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             }
