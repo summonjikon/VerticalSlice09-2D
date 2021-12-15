@@ -39,8 +39,7 @@ public class FireFlyRadius : MonoBehaviour
     public float calculateMultiplier(float distance)
     {
         multiplier = 1;
-        multiplier += distance / 3;
-        multiplier++;
+        multiplier += distance / 2;
         return multiplier;
     }
 }

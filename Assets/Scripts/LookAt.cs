@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class LookAt : MonoBehaviour
 {
-    [SerializeField]private Camera mainCamera;
+    [SerializeField]private GameObject mainCamera;
+    private float timer;
     void Start()
     {
-        mainCamera = (Camera)FindObjectOfType(typeof(Camera));
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     // Update is called once per frame
