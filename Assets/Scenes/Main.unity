@@ -4237,7 +4237,7 @@ MonoBehaviour:
   player: {fileID: 1255090674}
   offset: {x: 0, y: 2, z: -30}
   smoothFactor: 10
-  minPos: {x: -49.3, y: 2, z: -30}
+  minPos: {x: -47.1, y: 2, z: -30}
   maxPos: {x: 12.16749, y: 9, z: -30}
 --- !u!81 &932883148
 AudioListener:
@@ -4272,7 +4272,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 30.646011
+  field of view: 31.304459
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -4298,7 +4298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932883146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -49.3, y: 5.7, z: -29.99}
+  m_LocalPosition: {x: -47.1, y: 5.7, z: -29.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8161,7 +8161,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040803939}
   m_LocalRotation: {x: 0.0038221441, y: 0.007402379, z: -0.00714842, w: 0.9999398}
-  m_LocalPosition: {x: 8.8, y: 44.5, z: -111.9}
+  m_LocalPosition: {x: 8.88, y: 44.5, z: -111.9}
   m_LocalScale: {x: 0.51554316, y: 0.9998064, z: 0.99979556}
   m_Children:
   - {fileID: 933507340}
