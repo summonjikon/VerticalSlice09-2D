@@ -7,6 +7,9 @@ public class Flock : MonoBehaviour
     [SerializeField]private Transform parent;
     [Header("Spawn setup")]
     [SerializeField] private FlockUnit flockUnitPrefab;
+    [SerializeField] private bool randomizedFlockSize = true;
+    [SerializeField] private int randomizedMinimum = 2;
+    [SerializeField] private int randomizedMaximum = 10;
     [SerializeField] private int flockSize;
     [SerializeField] private Vector3 spawnBounds;
     [Header("Speed Setup")]
@@ -23,6 +26,10 @@ public class Flock : MonoBehaviour
     void Start()
     {
         GenerateUnits();
+        if(randomizedFlockSize == true)
+        {
+            flockSize = Random.Range(randomizedMinimum, randomizedMaximum);
+        }
     }
     private void Update()
     {
