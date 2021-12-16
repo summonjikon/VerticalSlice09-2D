@@ -14,6 +14,11 @@ public class LookAt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.LookAt(mainCamera.transform);
+        timer += Time.deltaTime;
+        if(timer > 0.1)
+        {
+            timer = 0;
+            gameObject.transform.LookAt(mainCamera.transform);
+        }
     }
 }
