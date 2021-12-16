@@ -11,7 +11,6 @@ public class FlockUnit : MonoBehaviour
     private Vector3 currentVelocity;
     private float speed;
     public Transform myTransform { get; set; }
-    [SerializeField]private FlockUnit parent;
     private void Awake()
     {
         myTransform = transform;
