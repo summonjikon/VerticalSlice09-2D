@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8439718626954362287, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4528569945287163040, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
     - target: {fileID: -8147353891242964454, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.232531
@@ -269,6 +273,18 @@ PrefabInstance:
     - target: {fileID: -6224468474048722444, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4900144561494838522, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4900144561494838522, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1399999
+      objectReference: {fileID: 0}
+    - target: {fileID: -4900144561494838522, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.7
       objectReference: {fileID: 0}
     - target: {fileID: -3825192332838043180, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -512,11 +528,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1699334631377835828, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.380916
+      value: -7.14
       objectReference: {fileID: 0}
     - target: {fileID: -1699334631377835828, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7098575
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: -1699334631377835828, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1043,7 +1059,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CategoryHash: 0
   m_labelHash: 0
-  m_SpriteKey: 0
+  m_SpriteKey: -6.4037464e-30
+--- !u!114 &116061934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116061930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: ogen
+    m_Hash: 0
+    m_CategoryList:
+    - m_Name: ogen01
+      m_Hash: 0
+      m_Sprite: {fileID: 4851529677348391456, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
+    - m_Name: ogen02
+      m_Hash: 0
+      m_Sprite: {fileID: 2096930493206984787, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
+    - m_Name: ogen03
+      m_Hash: 0
+      m_Sprite: {fileID: -2047970624003176114, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
+    - m_Name: ogen04
+      m_Hash: 0
+      m_Sprite: {fileID: -1681961172909785983, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
+    - m_Name: ogen05
+      m_Hash: 0
+      m_Sprite: {fileID: -4528569945287163040, guid: d349596c672a21e4fbadfc2eb5deefc0, type: 3}
+  m_SpriteLibraryAsset: {fileID: 0}
 --- !u!1 &429132217
 GameObject:
   m_ObjectHideFlags: 1
@@ -3144,6 +3192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5788104837423281386}
   - component: {fileID: 1092934478}
+  - component: {fileID: 8476064546456765146}
   m_Layer: 0
   m_Name: T pose mae for unity improved version
   m_TagString: Untagged
@@ -3151,6 +3200,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8476064546456765146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476064546456765145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: ogen
+    m_Hash: 0
+    m_CategoryList:
+    - m_Name: Entry
+      m_Hash: 0
+      m_Sprite: {fileID: 0}
+  m_SpriteLibraryAsset: {fileID: 0}
 --- !u!1 &8601111717708233938
 GameObject:
   m_ObjectHideFlags: 0
