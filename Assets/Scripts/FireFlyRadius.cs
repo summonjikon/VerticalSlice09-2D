@@ -4,42 +4,35 @@ using UnityEngine;
 
 public class FireFlyRadius : MonoBehaviour
 {
-    [SerializeField]private GameObject Player;
+    [SerializeField]private GameObject player;
     [SerializeField]private float range;
-    private float x, xMinus, yMinus, y, xSpeed, ySpeed;
+    private float y;
     private Transform start;
     [SerializeField]private bool following;
     private float multiplier;
     void Start()
     {
-        multiplier = 1;
+        multiplier = 2;
         start = gameObject.transform;
-        x = gameObject.transform.position.x + 3;
-        y = gameObject.transform.position.y + 3;
-        xMinus = gameObject.transform.position.x - 3;
-        yMinus = gameObject.transform.position.y - 3;
-        Player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
     void Update()
     {
-        float distance = Vector3.Distance(Player.transform.position, gameObject.transform.position);
-        if(following != true)
+        y = player.transform.position.y + 1;
+        float distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        if (following != true)
         {
-            if (distance < 5)
+            if (distance < range)
             {
                 following = true;
             }
         }
-        if(following == true)
+        else
         {
-            transform.LookAt(Player.transform);
-            gameObject.transform.position = transform.forward * multiplier;
+            if(distance > 1)
+            {
+                gameObject.transform.position = Vector3.Lerp(transform.position, player.transform.position, Time.deltaTime);
+            }
         }
-    }
-    public float calculateMultiplier(float distance)
-    {
-        multiplier = 1;
-        multiplier += distance / 2;
-        return multiplier;
     }
 }
