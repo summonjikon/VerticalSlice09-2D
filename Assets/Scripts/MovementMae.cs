@@ -29,47 +29,59 @@ public class MovementMae : MonoBehaviour
 
     void Update()
     {
-        if (justJumped != true)
+ 
+        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
-            if (isGrounded() && Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
-                justJumped = true;
-                currentJumpsRemaining = 2;
-                boostedJumpTimer = 0f;
-                rb.AddForce(transform.up * jumpPower);
+                    if (justJumped != true)
+                    {
+                        if (isGrounded() && Input.GetKeyDown(KeyCode.Space))
+                        {
+                            justJumped = true;
+                            currentJumpsRemaining = 2;
+                            boostedJumpTimer = 0f;
+                            rb.AddForce(transform.up * jumpPower);
+                        }
+                    }
+                    else
+                    {
+                        boostedJumpTimer += Time.deltaTime;
+                        if (boostedJumpTimer < 1.75f)
+                        {
+                            if (isGrounded() && Input.GetKeyDown(KeyCode.Space))
+                            {
+                                if (currentJumpsRemaining == 1)
+                                {
+                                    jumpPower += 300;
+                                }
+
+                                boostedJumpTimer = 0f;
+                                rb.AddForce(transform.up * jumpPower);
+                                currentJumpsRemaining--;
+
+                                if (currentJumpsRemaining == 0)
+                                {
+                                    jumpPower -= 300;
+                                    currentJumpsRemaining = 2;
+                                    boostedJumpTimer = 0;
+                                    justJumped = false;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            currentJumpsRemaining = 2;
+                            boostedJumpTimer = 0;
+                            justJumped = false;
+                        }
+                    }
             }
         }
-        else
+        else if(Input.GetKeyDown(KeyCode.Space))
         {
-            boostedJumpTimer += Time.deltaTime;
-            if (boostedJumpTimer < 1.75f)
-            {
-                if (isGrounded() && Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (currentJumpsRemaining == 1)
-                    {
-                        jumpPower += 300;
-                    }
-
-                    boostedJumpTimer = 0f;
-                    rb.AddForce(transform.up * jumpPower);
-                    currentJumpsRemaining--;
-
-                    if (currentJumpsRemaining == 0)
-                    {
-                        jumpPower -= 300;
-                        currentJumpsRemaining = 2;
-                        boostedJumpTimer = 0;
-                        justJumped = false;
-                    }
-                }
-            }
-            else
-            {
-                currentJumpsRemaining = 2;
-                boostedJumpTimer = 0;
-                justJumped = false;
-            }
+            justJumped = false;
+            rb.AddForce(transform.up * jumpPower);
         }
     }
 
@@ -79,6 +91,7 @@ public class MovementMae : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         if (Input.GetKey(KeyCode.A))
         {
+            
             rb.velocity = new Vector2(-movementSpeed, rb.velocity.y);
         }
 
