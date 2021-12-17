@@ -78,7 +78,7 @@ public class MovementMae : MonoBehaviour
                     }
             }
         }
-        else if(Input.GetKeyDown(KeyCode.Space))
+        else if(isGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
             justJumped = false;
             rb.AddForce(transform.up * jumpPower);
