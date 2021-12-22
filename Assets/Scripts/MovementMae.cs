@@ -57,22 +57,24 @@ public class MovementMae : MonoBehaviour
                             {
                                 if (currentJumpsRemaining == 1)
                                 {
-                                    
                                     jumpPower += 300;
                                 }
 
-                                anim.SetTrigger("Jumped2");
                                 boostedJumpTimer = 0f;
                                 rb.AddForce(transform.up * jumpPower);
                                 currentJumpsRemaining--;
 
                                 if (currentJumpsRemaining == 0)
                                 {
-                                    //anim.SetTrigger("Jumped3");
+                                    anim.SetTrigger("Jumped3");
                                     jumpPower -= 300;
                                     currentJumpsRemaining = 2;
                                     boostedJumpTimer = 0;
                                     justJumped = false;
+                                }
+                                else
+                                {
+                                    anim.SetTrigger("Jumped2");
                                 }
                             }
                         }
